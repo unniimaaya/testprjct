@@ -1,0 +1,37 @@
+<p>login works!</p>
+
+<div class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">SIGN  IN</h3>
+                
+            </div>
+            <div class="card-body">
+                <form  [formGroup]="loginForm" (ngSubmit)="login()" >
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control"   formControlName="username" placeholder="usernme" id="login_username" required>
+                        
+                    </div>
+
+                    <div class="error"  *ngIf="(this.loginForm.get('username')?.touched||this.loginForm.get('username')?.dirty)&&this.loginForm.get('username')?.errors"   >invalid user</div>                
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control"   formControlName="pwd"placeholder="password" id="login_password" required>
+                    </div>
+      
+                    <div class="error"  *ngIf="(this.loginForm.get('pwd')?.touched||this.loginForm.get('pwd')?.dirty)&&this.loginForm.get('pwd')?.errors"   >invalid password</div>                       
+                    <div class="form-group">
+                        <input type="submit" value="LOG IN" class="btn  login_btn " style="width:50%" >
+                    </div>
+                </form>
+            </div>
+            <p style="color:white;align-items:baseline;">Not a user? <a routerLink="register" >Register</a></p>
+        </div>
+    </div>
+</div>
